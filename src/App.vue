@@ -4,12 +4,12 @@
       <h1>Just a small diary app</h1>
     </div>
     <div id="app" class="row">
-      <div class="col-md-9">
+      <div class="col-md-8">
         <Diary :my-article="targetArticle"></Diary>
         <Edit :diary="diary" :onSubmit="addEntry"></Edit>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-3 col-md-offset-1">
         <Sidebar :items="diary" :onItemClick="loadArticle" ></Sidebar>
       </div>
     </div>
