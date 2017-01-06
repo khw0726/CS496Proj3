@@ -5,7 +5,7 @@
     </div>
     <div id="app" class="row">
       <div class="col-md-9">
-        <Diary :my-article="targetArticle"></Diary>
+        <Diary :my-article="targetArticle" :removeArticle="removeArticle"></Diary>
         <Edit :diary="diary" :onSubmit="addEntry"></Edit>
       </div>
 
@@ -44,7 +44,8 @@ export default {
       targetArticle: {
         title: '',
         contents: '',
-        response: ''
+        response: '',
+        date: ''
       }
     })
   },
@@ -54,6 +55,13 @@ export default {
     },
     loadArticle (article) {
       this.targetArticle = article
+    },
+    removeArticle (article) {
+      diaryRef.child(article['.key']).remove()
+      this.targetArticle.title = ' '
+      this.targetArticle.contents = ' '
+      this.targetArticle.response = ' '
+      this.targetArticle.date = ' '
     }
   }
 }
