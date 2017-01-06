@@ -27,6 +27,7 @@ const diaryRef = db.ref('diary')
 //   title: 'What a wonderful vue!',
 //   contents: 'I hate js',
 //   response: 'That\'s too bad'
+
 // }
 export default {
   name: 'app',
