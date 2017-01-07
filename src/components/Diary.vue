@@ -1,15 +1,16 @@
 <template>
   <div>
       <div class="title">
-        <h2>{{myArticle.title}} <small>{{dateStr()}}</small></h2>
+        <h2>title : {{myArticle.title}} <small>{{dateStr()}}</small></h2>
+        <button v-on:click="removeArticle(myArticle)">X</button>
       </div>
 
       <div class="contents">
-        <p>{{myArticle.contents}}</p>
+        <p>diary : {{myArticle.contents}}</p>
       </div>
     
       <div class="response">
-        <p>{{myArticle.response}}</p>
+        <p>response : {{myArticle.response}}</p>
       </div>
   </div>
 </template>
@@ -17,7 +18,7 @@
 <script>
   export default {
     name: 'diary',
-    props: ['myArticle'],
+    props: ['myArticle', 'removeArticle'],
     methods: {
       dateStr: function () {
         let d = new Date(this.myArticle.date)
