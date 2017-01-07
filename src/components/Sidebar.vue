@@ -2,7 +2,7 @@
   <nav class="bs-docs-sidebar">
     <ul class="nav nav-stacked fixed">
         <li v-for="item in items" role="presentation"><a href="#" v-on:click ="onItemClick(item)">
-        {{ item.title }}
+        {{ item.date }}
         </a></li>
     </div>
   </nav>

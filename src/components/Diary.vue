@@ -2,7 +2,7 @@
   <div>
       <div class="title">
         <h2>title : {{myArticle.title}} <small>{{dateStr()}}</small></h2>
-        <button v-on:click="removeArticle(myArticle)">X</button>
+        <button class="btn btn-default" v-on:click="remove(myArticle)">X</button>
       </div>
 
       <div class="contents">
@@ -10,7 +10,7 @@
       </div>
     
       <div class="response">
-        <p>response : {{myArticle.response}}</p>
+        <p>response : {{ myArticle.keywords}} {{ myArticle.sentiment }}</p>
       </div>
   </div>
 </template>
@@ -24,6 +24,10 @@
         let d = new Date(this.myArticle.date)
         console.log(d)
         return d.toLocaleString('en-US')
+      },
+      remove: function () {
+        console.log(this.removeArticle)
+        this.removeArticle(this.myArticle)
       }
     }
   }

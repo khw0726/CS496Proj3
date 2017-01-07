@@ -10,5 +10,6 @@ var config = {
 
 let fb = firebase.initializeApp(config)
 let db = fb.database()
+// let auth = fb.auth()
 
 export default db

@@ -3,8 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import Vuefire from 'vuefire'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import '../node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
+import '../node_modules/bootstrap/dist/css/bootstrap-theme.css'
 
 Vue.use(Vuefire)
 
