@@ -1,0 +1,110 @@
+센티멘트 기준
+
+출처: http://www.econote.co.kr/main/view_post.asp?post_seq_no=161508
+
+
+0 ~ 0.45(Bad)
+
+
+That's too bad.
+I'm so sorry about that.
+
+So you are saying that [Keyword 1] made you feel bad, right?
+But that's okay.
+옛말에 이런말도 있잖아?
+-옛말 about Keyword 1-	-> 명언
+
+Just forget all about it.
+Don't take it too seriously.
+That's not your fault.
+
+Why don't you drink some [soju, beer, whisky, makgeolli, wine] for your feeling? 
+Why don't you play some game like [Overwatch, Lol, HOS, tetris] for your feeling?
+Hidden: Why don't you 코딩 on CS496 Class for your feeling?
+
+It'll make you feel better.
+
+For game:
+But you should play game a little.
+Game takes your energy away.
+For game-tetris:
+Sometimes simple things are good for your mental.
+For alcohol:
+But you should drink alcohol a little.
+Alcohol takes your energy away.
+
+I wish you have a great day tomorrow.
+You can start again tomorrow.
+I'm sure you'll make it.
+Think on the bright side.
+
+Fighting!
+
+Remember this:
+
+1. -옛말 about Keyword 1-
+
+2. 소주일때 소주 사진
+
+
+
+0.45 ~ 0.55(Soso)
+
+내일 써야겠당.
+
+
+0.55 ~ 1(Good)
+
+Congratulations!
+Amazing!
+Great!
+
+So you are saying that [Keyword 1] made you feel great, right?
+
+Good for you!
+You had a really great day!
+
+You know, 옛말에 이런말도 있잖아?
+-옛말 about Keyword 1-	-> 명언
+
+Anyway,
+오늘 밤은 축하의 [soju, beer, whisky, makgeolli, wine]과 함께 보낼 수 있겠다!
+오늘 밤은 [좋은 친구]와 함께 보낼 수 있겠다!
+오늘 밤은 축하의 [Overwatch, Lol, HOS, tetris]와 함께 보낼 수 있겠다!
+Hidden: 오늘 밤은 CS496 실습실에서 즐겁게 보낼 수 있겠다!
+
+I hope you also have a great day tomorrow!
+
+Remember this:
+
+1. -옛말 about Keyword 1-
+
+2. 소주일때 소주 사진
+
+
+
+Caution:
+
+Centiment 분석이 약간 잘못 되었을 때 일기를 보는 사람이 슬퍼할 수도 있을 것 같다.
+
+따라서 상수를 바꿀 필요가 있다.(0.45 ,0.55)
+
+예시:
+
+오늘 하루는 정말 힘들었다.
+CS496 수업에서 코딩을 했는데, 트위터와 연동하는 문제가 생긴 것이었다.
+몇 시간동안 그 문제를 해결하기 위해 노력했으나, 잘 되지 않았다.
+트위터가 나를 싫어하나 보다.
+내일은 문제를 해결할 수 있었으면 좋겠다.
+
+->
+
+Today was really hard.
+I coded in the CS496 class, but I was having trouble with Twitter.
+I tried to solve the problem for a few hours, but it did not work out.
+I think Twitter does not like me.
+Tomorrow I wish I could solve the problem.
+
+Keyword: Today, CS496 class, Twitter, problem, hours
+
+Sentiment: 0 %
