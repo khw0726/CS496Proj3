@@ -68,7 +68,8 @@ export default {
   },
   methods: {
     addEntry () {
-      this.newEntry.date = new Date().getDay()
+      this.newEntry.date = new Date().getTime()
+      console.log(this.newEntry.date)
       // contents = this.newEntry.contents
       // let xhr = new XMLHttpRequest()
       // xhr.open('POST', 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases', false)

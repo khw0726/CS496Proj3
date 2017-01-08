@@ -10,6 +10,7 @@
         <!--<auth :users="users"></auth>-->
         <Diary :my-article="targetArticle" :remove-article="removeArticle"></Diary>
         <Edit :diary="diary" :onSubmit="addEntry"></Edit>
+        <MyChart :chart-data="chartData" :options="null"></MyChart>
       </div>
 
       <div class="col-md-3 col-md-offset-1">
@@ -24,6 +25,7 @@ import Diary from './components/Diary'
 import Sidebar from './components/Sidebar'
 import Edit from './components/Edit'
 import Auth from './components/Auth'
+<<<<<<< HEAD
 import fb from './db'
 import firebase from 'firebase'
 let db = fb.database();
@@ -112,6 +114,15 @@ fb.auth().signOut().then(function() {
 
 const diaryRef = db.ref('diary')
 
+=======
+import MyChart from './components/MyChart'
+import db from './db'
+
+const diaryRef = db.ref('diary')
+// const sentiments = diaryRef.on('value', function (snapshot) {
+//   snapshot.child('sentiment').val()
+// })
+>>>>>>> c5de85aa68cb5b72ab33fcc8c65dcfc694305289
 // const usersRef = auth
 export default {
   name: 'app',
@@ -119,10 +130,13 @@ export default {
     Diary,
     Sidebar,
     Edit,
-    Auth
+    Auth,
+    MyChart
   },
   firebase: {
-    diary: diaryRef
+    diary: diaryRef.orderByChild('date')
+    // dates: diaryRef.on('value'),
+    // sentiments: diaryRef.on('value')
   },
   data: function () {
     return ({
@@ -132,8 +146,30 @@ export default {
         keyPhrases: [],
         sentiment: -1,
         date: ''
+      },
+      dates: this.getDates(),
+      sentiments: this.getSentiments(),
+      chartData: {
+        labels: this.dates,
+        datasets: [{
+          label: 'Sentiments',
+          data: this.sentiments
+        }]
       }
     })
+  },
+  watch: {
+    diary: function () {
+      this.dates = this.getDates()
+      this.sentiments = this.getSentiments()
+      this.chartData = {
+        labels: this.dates,
+        datasets: [{
+          label: 'Sentiments',
+          data: this.sentiments
+        }]
+      }
+    }
   },
   methods: {
     addEntry (newEntry) {
@@ -153,6 +189,17 @@ export default {
       this.targetArticle.contents = ''
       this.targetArticle.response = ''
       this.targetArticle.date = ''
+    },
+    getDates () {
+      return this.diary.map(function (diary) {
+        let a = new Date(diary.date)
+        return a.date
+      })
+    },
+    getSentiments () {
+      return this.diary.map(function (diary) {
+        return diary.sentiment
+      })
     }
     // tryLogin (user) {
     //   usersRef.signInWithEmailAndPassword(user.email, user.password).catch(function (err) {

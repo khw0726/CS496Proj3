@@ -1,17 +1,26 @@
 <template>
   <nav class="bs-docs-sidebar">
     <ul class="nav nav-stacked fixed">
-        <li v-for="item in items" role="presentation"><a href="#" v-on:click ="onItemClick(item)">
-        {{ item.date }}
+        <li v-for="item in dates(items)" role="presentation"><a href="#" v-on:click ="onItemClick(item)">
+        {{ item }} 
         </a></li>
     </div>
+    <h5>{{ dates(items) }}</h5>
   </nav>
 </template>
 
 <script>
   export default {
     name: 'sidebar',
-    props: ['items', 'onItemClick']
+    props: ['items', 'onItemClick'],
+    methods: {
+      dates: function (items) {
+        return items.map(function (item) {
+          let a = new Date(item.date)
+          return a.toLocaleString('en-US')
+        })
+      }
+    }
   }
 
 </script>
