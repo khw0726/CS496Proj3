@@ -8,12 +8,24 @@ var user_token;
 var user_secret;
 var diary;
 var response;
+var len=0;
+var writings="";
+var writing0="";
+var writing1="";
+
 app.get('/', function(req, res){
+res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+//res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//res.setHeader('Access-Control-Allow-Credentials', true);
 
 user_token=req.query.user_token;
 user_secret=req.query.user_secret;
 diary=req.query.diary;
 response=req.query.response;
+
+writings=diary+response;
+
+len=diary.length+response.length;
 
 var oauth = new OAuth.OAuth(
       'https://api.twitter.com/oauth/request_token',
@@ -24,15 +36,26 @@ var oauth = new OAuth.OAuth(
       null,
       'HMAC-SHA1'
     );
+while(writings!=''){
+
+writing0=writings.substring(0,137);
+writing1=writings.substring(137,writings.length);
+writings=writing1;
 
 oauth.post(
       'https://api.twitter.com/1.1/statuses/update.json',
       user_token,       //User token
       user_secret,      //User secret
-        {"status": diary+response },
+        {"status": writing0 },
         function (e, data, res){
         if (e) console.error(e);
         else console.log(require('util').inspect(data));
       });
+
+}
+res.send('Success');
+
+
 });
 app.listen(3000);
+
