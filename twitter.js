@@ -12,7 +12,14 @@ var len=0;
 var writings="";
 var writing0="";
 var writing1="";
-
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 app.get('/', function(req, res){
 res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
 //res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -30,32 +37,44 @@ len=diary.length+response.length;
 var oauth = new OAuth.OAuth(
       'https://api.twitter.com/oauth/request_token',
       'https://api.twitter.com/oauth/access_token',
-      '7VfKo4tn3t9Xxx2Kky0ab7yqi',      //App consumer key for twitter
-      'ZoCq6apXgSgQzr89bB5b8o4VORHS68Uwgr69WxaBvqirEWXRmH',     //App secret key for twitter
+      '7VfKo4tn3t9Xxx2Kky0ab7yqi',	//App consumer key for twitter
+      'ZoCq6apXgSgQzr89bB5b8o4VORHS68Uwgr69WxaBvqirEWXRmH',	//App secret key for twitter
       '1.0A',
       null,
       'HMAC-SHA1'
     );
-while(writings!=''){
 
-writing0=writings.substring(0,137);
-writing1=writings.substring(137,writings.length);
-writings=writing1;
 
-oauth.post(
+var oauth_post=function(){
+	writing0=writings.substring(0,137);
+	writing1=writings.substring(137,writings.length);
+	writings=writing1;
+	if(writing0 !== ''){
+
+	oauth.post(
       'https://api.twitter.com/1.1/statuses/update.json',
       user_token,       //User token
       user_secret,      //User secret
         {"status": writing0 },
         function (e, data, res){
         if (e) console.error(e);
-        else console.log(require('util').inspect(data));
-      });
+        else {
+	console.log(require('util').inspect(data));
+	oauth_post();
+	}
+      })}
+}
+
+
+//while(writings!=''){
+
+//writing0=writings.substring(0,137);
+//writing1=writings.substring(137,writings.length);
+//writings=writing1;
+
+oauth_post();
 
 }
-res.send('Success');
-
-
-});
+);
 app.listen(3000);
 
